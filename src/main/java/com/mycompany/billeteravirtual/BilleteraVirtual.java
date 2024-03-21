@@ -93,7 +93,7 @@ public class BilleteraVirtual {
             }
 
             leer.nextLine();
-            System.out.println("........Si desea volver al Menu ingrese S, sino Enter");
+            System.out.println("........Si desea volver al Menu ingrese S, sino Enter para finalizar sesion");
             String respuesta = leer.nextLine();
             if (respuesta.equals("s") || respuesta.equals("S")) {
                 acceso = true;
