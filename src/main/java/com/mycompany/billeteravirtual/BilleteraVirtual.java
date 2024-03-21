@@ -54,34 +54,28 @@ public class BilleteraVirtual {
                         acceso = false;
                         break;
                     case 1:
-                        // System.out.println("Su saldo es: ");
-                        // obj.obtenerSaldo();
-                        System.out.println("Su saldo es: " + saldo.obtenerSaldo());
-                        // usuario1.getWallet().getSaldo();
-                        // System.out.println("Saldo actual" + usuario1.getWallet().getSaldo());
+                        System.out.println(usuario1.getNombre() + ". Su saldo es: $" + usuario1.getWallet().obtenerSaldo());
                         break;
                     case 2:
                         System.out.println("Ingrese el monto a depositar");
                         monto = leer.nextInt(); // 5000
-                        System.out.println("Monto depositado: " + monto);
+                        System.out.println("Monto depositado: $ " + monto + " en la cuenta de: " + usuario1.getNombre());
                         usuario1.getWallet().depositar(monto);
                         break;
                     case 3:
                         System.out.println("Ingrese el monto a retirar");
                         monto = leer.nextInt();
-                        System.out.println("Monto retirado es : " + retiro.retirar(monto));
-                        usuario1.getWallet().retirar(monto);
-                        // double nuevo_saldo = retiro.obtenerSaldo() - monto;
-                        // System.out.println("Monto retirado: " + monto);
-                        // System.out.println("Su nuevo saldo es: " + nuevo_saldo);
+                        System.out.println("Monto retirado es : " + usuario1.getWallet().retirar(monto));
                         break;
                     case 4:
-                        // System.out.println("A que moneda quiere convertir ");
-                        // monto = leer.nextInt(); // 5000
-                        // if (deposito.depositar((monto))) {
-                        // System.out.println("Monto depositado: " + monto);
-                        // usuario1.getWallet().depositar(monto);
-                        // }
+                        System.out.println("Ingrese opcion para convertir moneda ");
+                        System.out.println("1: USD/EUR ; 2: EUR/USD");
+                        int moneda = leer.nextInt();
+                        if (moneda == 1) {
+                            System.out.println("ingrese dolares");
+                        } else if (moneda == 2) {
+                            System.out.println("ingrese euros");
+                        } else System.out.println("opcion no valida");
                         break;
                     case 5:
                         System.out.println("Imprimir cartola");

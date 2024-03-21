@@ -15,7 +15,7 @@ public class AlfiWallet implements Wallet {
 
     private double saldo;
     private List<String> transacciones = new ArrayList<>();
-    
+
     @Override
     public double obtenerSaldo() {
         return saldo;
@@ -31,14 +31,21 @@ public class AlfiWallet implements Wallet {
 
     @Override
     public boolean retirar(double cantidad) {
-        System.out.println("cantidad en AlfiWallet " + cantidad);
-        if (cantidad > 0) { //&& saldo >= cantidad
+        if (cantidad > 0) { // && saldo >= cantidad
             saldo -= cantidad;
-            System.out.println("Saldo..." + obtenerSaldo());
-            System.out.println("restando......" + saldo);
-            return true;
+            if (saldo < 0) {
+                System.out.println("No puede retirar esa cantidad...");
+                saldo += cantidad;
+                return false;
+
+            } else {
+                System.out.println("restando......" + cantidad);
+                System.out.println("Nuevo Saldo..." + obtenerSaldo());
+                return true;
+            }
+
         } else {
-            System.out.println("Ingrese un número mayor a 0 y menor o igual al saldo actual" + saldo);
+            System.out.println("Ingrese un número mayor a 0 y menor o igual al saldo actual de: " + saldo);
             return false;
         }
     }
@@ -47,5 +54,5 @@ public class AlfiWallet implements Wallet {
     public boolean convertirMoneda(double cantidad, String desdeMoneda, String aMoneda) {
         return false;
     }
-    
+
 }
