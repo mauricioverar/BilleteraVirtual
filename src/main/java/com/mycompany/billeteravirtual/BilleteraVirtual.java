@@ -24,15 +24,15 @@ public class BilleteraVirtual {
         int opcion = 9, monto;
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         // instanciar
-        AlfiWallet saldo = new AlfiWallet();
-        AlfiWallet deposito = new AlfiWallet();
-        AlfiWallet retiro = new AlfiWallet();
+        // AlfiWallet saldo = new AlfiWallet();
+        AlfiWallet wallet = new AlfiWallet();
+        // AlfiWallet retiro = new AlfiWallet();
         System.out.println("********************");
         System.out.println("Billetera Virtual");
         System.out.println("Ingrese nombre: ");
         String nombre = leer.nextLine();
         // leer.nextLine();
-        Usuario usuario1 = new Usuario(1, nombre, deposito);
+        Usuario usuario1 = new Usuario(1, nombre, wallet);
         usuarios.add(usuario1);
         usuario1.getWallet().obtenerSaldo();
         // System.out.println("Ingrese rut: ");
@@ -73,28 +73,28 @@ public class BilleteraVirtual {
                         int moneda = leer.nextInt();
                         if (moneda == 1) {
                             System.out.println("ingrese dolares");
+                            int dolars = leer.nextInt();
+                            // System.out.println(dolars + " dolares, equivalen a: " + usuario1.getWallet().convertirMoneda(dolars, "USD", "EUR") + "Euros");
+                            usuario1.getWallet().convertirMoneda(dolars, "USD", "EUR");
                         } else if (moneda == 2) {
                             System.out.println("ingrese euros");
+                            int euros = leer.nextInt();
+                            usuario1.getWallet().convertirMoneda(euros, "EUR", "USD");
                         } else System.out.println("opcion no valida");
                         break;
                     case 5:
                         System.out.println("Imprimir cartola");
-                        // monto = leer.nextInt(); // 5000
-                        // if (deposito.depositar((monto))) {
-                        // System.out.println("Monto depositado: " + monto);
-                        // usuario1.getWallet().depositar(monto);
-                        // }
+                        System.out.println(usuario1.getWallet().getTransacciones());
                         break;
                     default:
                         System.out.println("Opcion no existe");
                 }
             } catch (Exception e) {
-                // TODO: handle exception
                 System.out.println(" ingrese solo numero de opcion");
             }
 
             leer.nextLine();
-            System.out.println("Si desa volver al Menu ingrese S, sino Enter");
+            System.out.println("........Si desa volver al Menu ingrese S, sino Enter");
             String respuesta = leer.nextLine();
             if (respuesta.equals("s") || respuesta.equals("S")) {
                 acceso = true;

@@ -6,7 +6,7 @@ package com.mycompany.billeteravirtual;
 
 /**
  *
- * @author mao
+ * @author Mauricio Vera
  */
 public class Usuario {
     //atributos

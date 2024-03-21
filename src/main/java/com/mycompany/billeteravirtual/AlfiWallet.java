@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author mao
+ * @author Mauricio Vera
  */
 public class AlfiWallet implements Wallet {
 
@@ -23,7 +23,7 @@ public class AlfiWallet implements Wallet {
 
     @Override
     public void depositar(double cantidad) {
-        saldo += cantidad; // 5000
+        saldo += cantidad;
         transacciones.add("Deposito: +" + saldo);
         if (cantidad > 0) {
         }
@@ -39,6 +39,7 @@ public class AlfiWallet implements Wallet {
                 return false;
 
             } else {
+                transacciones.add("Retiro: +" + cantidad);
                 System.out.println("restando......" + cantidad);
                 System.out.println("Nuevo Saldo..." + obtenerSaldo());
                 return true;
@@ -52,7 +53,26 @@ public class AlfiWallet implements Wallet {
 
     @Override
     public boolean convertirMoneda(double cantidad, String desdeMoneda, String aMoneda) {
-        return false;
+        if (desdeMoneda == "USD") {
+            double euros = cantidad * 1.09;
+            System.out.println(cantidad + " Dolares, equivalen a: "
+            + euros + " Euros");
+        } else if (desdeMoneda == "EUR") {
+            double dolares = cantidad * 0.92;
+            System.out.println(cantidad + " Euros, equivalen a: "
+                    + dolares + " Dolares");
+        }
+        return true;
     }
+
+    public List<String> getTransacciones() {
+        return transacciones;
+    }
+
+    public void setTransacciones(List<String> transacciones) {
+        this.transacciones = transacciones;
+    }
+
+    
 
 }
