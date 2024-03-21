@@ -14,19 +14,18 @@ import java.util.Scanner;
 public class BilleteraVirtual {
 
     public static void main(String[] args) {
+
         // variables
         // instanciando a Scanner
         Scanner leer = new Scanner(System.in);
-        // String nombre;
         boolean acceso = true;
-
-        // String rut;
         int opcion = 9, monto;
+
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-        // instanciar
-        // AlfiWallet saldo = new AlfiWallet();
+
+        // instancia de AlfiWallet
         AlfiWallet wallet = new AlfiWallet();
-        // AlfiWallet retiro = new AlfiWallet();
+
         System.out.println("********************");
         System.out.println("Billetera Virtual");
         System.out.println("Ingrese nombre: ");
@@ -35,8 +34,7 @@ public class BilleteraVirtual {
         Usuario usuario1 = new Usuario(1, nombre, wallet);
         usuarios.add(usuario1);
         usuario1.getWallet().obtenerSaldo();
-        // System.out.println("Ingrese rut: ");
-        // rut = leer.nextLine();
+
         // menu
         while (acceso) {
             try {
@@ -58,14 +56,13 @@ public class BilleteraVirtual {
                         break;
                     case 2:
                         System.out.println("Ingrese el monto a depositar");
-                        monto = leer.nextInt(); // 5000
-                        System.out.println("Monto depositado: $ " + monto + " en la cuenta de: " + usuario1.getNombre());
+                        monto = leer.nextInt();
                         usuario1.getWallet().depositar(monto);
                         break;
                     case 3:
                         System.out.println("Ingrese el monto a retirar");
                         monto = leer.nextInt();
-                        System.out.println("Monto retirado es : " + usuario1.getWallet().retirar(monto));
+                        usuario1.getWallet().retirar(monto);
                         break;
                     case 4:
                         System.out.println("Ingrese opcion para convertir moneda ");
@@ -74,7 +71,6 @@ public class BilleteraVirtual {
                         if (moneda == 1) {
                             System.out.println("ingrese dolares");
                             int dolars = leer.nextInt();
-                            // System.out.println(dolars + " dolares, equivalen a: " + usuario1.getWallet().convertirMoneda(dolars, "USD", "EUR") + "Euros");
                             usuario1.getWallet().convertirMoneda(dolars, "USD", "EUR");
                         } else if (moneda == 2) {
                             System.out.println("ingrese euros");
@@ -83,8 +79,11 @@ public class BilleteraVirtual {
                         } else System.out.println("opcion no valida");
                         break;
                     case 5:
-                        System.out.println("Imprimir cartola");
-                        System.out.println(usuario1.getWallet().getTransacciones());
+                        System.out.println("Imprimiendo el historial de su cuenta...");
+                        if (usuario1.getWallet().getTransacciones().size() > 0) {
+                            System.out.println(usuario1.getWallet().getTransacciones());
+                        } else System.out.println("Sin movimientos en su cuenta");
+
                         break;
                     default:
                         System.out.println("Opcion no existe");
@@ -94,12 +93,12 @@ public class BilleteraVirtual {
             }
 
             leer.nextLine();
-            System.out.println("........Si desa volver al Menu ingrese S, sino Enter");
+            System.out.println("........Si desea volver al Menu ingrese S, sino Enter");
             String respuesta = leer.nextLine();
             if (respuesta.equals("s") || respuesta.equals("S")) {
                 acceso = true;
             } else {
-                System.out.println("Muchas gracias");
+                System.out.println("___ Muchas gracias por usar la BilleteraVirtual ... vuelva pronto ___");
                 acceso = false;
             }
 

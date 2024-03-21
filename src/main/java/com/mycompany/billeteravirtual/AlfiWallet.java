@@ -13,8 +13,11 @@ import java.util.List;
  */
 public class AlfiWallet implements Wallet {
 
+    // variables
     private double saldo;
     private List<String> transacciones = new ArrayList<>();
+    double euroDolars = 1.0869; // dolares en un EUR (20 de marzo 2024)
+    double dolarEurs = 0.920961; // euros en un DOLAR (20 de marzo 2024)
 
     @Override
     public double obtenerSaldo() {
@@ -23,9 +26,14 @@ public class AlfiWallet implements Wallet {
 
     @Override
     public void depositar(double cantidad) {
-        saldo += cantidad;
-        transacciones.add("Deposito: +" + saldo);
+        
         if (cantidad > 0) {
+            saldo += cantidad;
+            transacciones.add("\nDeposito: +$" + cantidad);
+            System.out.println("Monto depositado: $ " + cantidad);
+
+        } else {
+            System.out.println("El deposito debe ser mayor a 0");
         }
     }
 
@@ -39,14 +47,14 @@ public class AlfiWallet implements Wallet {
                 return false;
 
             } else {
-                transacciones.add("Retiro: +" + cantidad);
-                System.out.println("restando......" + cantidad);
-                System.out.println("Nuevo Saldo..." + obtenerSaldo());
+                transacciones.add("\nRetiro: -$" + cantidad);
+                System.out.println("restando......$" + cantidad);
+                System.out.println("Nuevo Saldo...$" + obtenerSaldo());
                 return true;
             }
 
         } else {
-            System.out.println("Ingrese un número mayor a 0 y menor o igual al saldo actual de: " + saldo);
+            System.out.println("Ingrese un número mayor a 0 y menor o igual al saldo actual de: $" + saldo);
             return false;
         }
     }
@@ -54,11 +62,11 @@ public class AlfiWallet implements Wallet {
     @Override
     public boolean convertirMoneda(double cantidad, String desdeMoneda, String aMoneda) {
         if (desdeMoneda == "USD") {
-            double euros = cantidad * 1.09;
+            double euros = cantidad * dolarEurs;
             System.out.println(cantidad + " Dolares, equivalen a: "
             + euros + " Euros");
         } else if (desdeMoneda == "EUR") {
-            double dolares = cantidad * 0.92;
+            double dolares = cantidad * euroDolars;
             System.out.println(cantidad + " Euros, equivalen a: "
                     + dolares + " Dolares");
         }
@@ -72,7 +80,4 @@ public class AlfiWallet implements Wallet {
     public void setTransacciones(List<String> transacciones) {
         this.transacciones = transacciones;
     }
-
-    
-
 }
