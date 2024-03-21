@@ -38,24 +38,24 @@ public class AlfiWallet implements Wallet {
     }
 
     @Override
-    public boolean retirar(double cantidad) {
+    public void retirar(double cantidad) {
         if (cantidad > 0) { // && saldo >= cantidad
             saldo -= cantidad;
             if (saldo < 0) {
-                System.out.println("No puede retirar esa cantidad...");
                 saldo += cantidad;
-                return false;
+                System.out.println("No puede retirar esa cantidad...");
+                // return false;
 
             } else {
                 transacciones.add("\nRetiro: -$" + cantidad);
                 System.out.println("restando......$" + cantidad);
                 System.out.println("Nuevo Saldo...$" + obtenerSaldo());
-                return true;
+                // return true;
             }
 
         } else {
             System.out.println("Ingrese un número mayor a 0 y menor o igual al saldo actual de: $" + saldo);
-            return false;
+            // return false;
         }
     }
 

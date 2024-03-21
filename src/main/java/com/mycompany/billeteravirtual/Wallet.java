@@ -11,6 +11,6 @@ package com.mycompany.billeteravirtual;
 public interface Wallet {
     double obtenerSaldo();
     void depositar(double cantidad);
-    boolean retirar(double cantidad); // void
+    void retirar(double cantidad); // void
     boolean convertirMoneda(double cantidad, String desdeMoneda, String aMoneda);
 }
