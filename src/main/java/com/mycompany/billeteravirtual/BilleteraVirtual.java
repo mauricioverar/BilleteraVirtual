@@ -19,8 +19,10 @@ public class BilleteraVirtual {
                 // variables
                 // instanciando a Scanner
                 Scanner leer = new Scanner(System.in)) {
+            String password, patron_password = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$";
+            String nombre, patron_nombre = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
             boolean acceso = true;
-            int monto;
+            int monto, intentos = 4;
 
             ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -34,10 +36,44 @@ public class BilleteraVirtual {
             System.out.println("*********************");
             System.out.println(" ");
 
-            System.out.println("Ingrese su nombre para iniciar: ");
+            // validar nombre del usuario para ingresar solo letras
+            do {
+                System.out.println(
+                        "Ingrese su nombre:");
+                nombre = leer.nextLine();
+
+                if (!nombre.matches(patron_nombre)) {
+                    System.out.println("Ingrese solo letras");
+                    System.out.println("-------------------");
+                }
+
+            } while (!nombre.matches(patron_nombre));
             System.out.println(" ");
 
-            String nombre = leer.nextLine();
+            // validar clave del usuario (por seguridad)
+            do {
+                System.out.println(
+                        "Ingrese la clave de su cuenta, para iniciar sesion \n(almenos una minuscula y una mayuscula y un digito y caracter especial, largo minimo de 8 caracteres) ");
+                password = leer.nextLine();
+
+                if (!password.matches(patron_password)) {
+                    System.out.println("Error:_Clave_No valida");
+                    intentos--;
+                    if (intentos > 1) {
+                        System.out.println("*** Le quedan " + intentos + " intentos ***");
+                    } else if (intentos == 1) {
+                        System.out.println("*************************************************");
+                        System.out.println("***** ¡ATENCION! Le queda el ultimo intento *****");
+                        System.out.println("*************************************************");
+                    } else {
+                        System.out.println("Acceso bloqueado....");
+                        acceso = false;
+                        break;
+                    }
+                }
+            } while (!password.matches(patron_password));
+            System.out.println(" ");
+
             Usuario usuario1 = new Usuario(1, nombre, wallet);
             usuarios.add(usuario1);
             usuario1.getWallet().obtenerSaldo();
@@ -118,15 +154,24 @@ public class BilleteraVirtual {
                 System.out.println("* Si desea volver al Menu ingrese S        *");
                 System.out.println("* ........Sino Enter para finalizar sesion *");
                 System.out.println("********************************************");
+                System.out.println(" ");
 
                 String respuesta = leer.nextLine();
                 if (respuesta.equals("s") || respuesta.equals("S")) {
                     acceso = true;
                 } else {
-                    System.out.println("___ Muchas gracias por utilizar la BilleteraVirtual ... vuelva pronto ___");
-                    System.out.println("------------------------------------------------------------------------");
-                    System.out.println("------------------------------------------------------------------------");
-                    acceso = false;
+                    System.out.println(" ¿ Está seguro que desea salir ?, entonces ingrese S. Sino Enter para volver  ");
+                    System.out.println(" ---------------------------------------------------------------------------  ");
+                    String exit = leer.nextLine();
+
+                    if (exit.equals("s") || exit.equals("S")) {
+                        System.out.println("___ Muchas gracias por utilizar la BilleteraVirtual ... vuelva pronto ___");
+                        System.out.println("-------------------------------------------------------------------------");
+                        System.out.println("-------------------------------------------------------------------------");
+                        acceso = false;
+                    } else {
+                        acceso = true;
+                    }
                 }
 
             }

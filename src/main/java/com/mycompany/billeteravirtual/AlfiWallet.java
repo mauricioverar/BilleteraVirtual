@@ -21,6 +21,7 @@ public class AlfiWallet implements Wallet {
 
     /**
      * metodo para obtener el saldo
+     * 
      * @return el valor del saldo de la cuenta del usuario
      */
     @Override
@@ -30,15 +31,21 @@ public class AlfiWallet implements Wallet {
 
     /**
      * metodo para depositar en la cuenta del usuario
+     * 
      * @param cantidad valor double con la cantidad a depositar
      */
     @Override
     public void depositar(double cantidad) {
 
         if (cantidad > 0) {
-            saldo += cantidad;
-            transacciones.add("\nDeposito: +$" + cantidad);
-            System.out.println("Monto depositado: $ " + cantidad);
+
+            if (cantidad <= 99999) {
+                saldo += cantidad;
+                transacciones.add("\nDeposito: +$" + cantidad);
+                System.out.println("Monto depositado: $ " + cantidad);
+            } else {
+                System.out.println("La cantidad a depositar, no debe superar los 5 digitos ");
+            }
 
         } else {
             System.out.println("El deposito debe ser mayor a 0");
@@ -47,6 +54,7 @@ public class AlfiWallet implements Wallet {
 
     /**
      * metodo para retirar dinero
+     * 
      * @param cantidad valor double con la cantidad a retirar
      */
     @Override
@@ -69,9 +77,10 @@ public class AlfiWallet implements Wallet {
 
     /**
      * metodo para convertir de dolar a euro y viceversa
-     * @param cantidad valor double con la cantidad a convertir
+     * 
+     * @param cantidad    valor double con la cantidad a convertir
      * @param desdeMoneda string que indica desde que tipo de moneda convertir
-     * @param aMoneda string que indica a cual tipo de moneda convertir
+     * @param aMoneda     string que indica a cual tipo de moneda convertir
      * @return true indicando que el valor fue convertido
      */
     @Override
@@ -90,6 +99,7 @@ public class AlfiWallet implements Wallet {
 
     /**
      * metodo para obtener el historial
+     * 
      * @return el listado de las transacciones
      */
     public List<String> getTransacciones() {
@@ -98,6 +108,7 @@ public class AlfiWallet implements Wallet {
 
     /**
      * metodo para almacenar las transacciones
+     * 
      * @param transacciones listado de las transacciones realizadas por usuario
      */
     public void setTransacciones(List<String> transacciones) {
