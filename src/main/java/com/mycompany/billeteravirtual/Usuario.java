@@ -19,7 +19,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    //constructor por parametros
+    /**
+     * constructor por parametros
+     * @param id numero entero para identificar al usuario
+     * @param nombre string para el nombre del usuario
+     * @param wallet  para instanciar la clase AlfiWallet
+     */
     public Usuario(int id, String nombre, AlfiWallet wallet) {
         this.id = id;
         this.nombre = nombre;

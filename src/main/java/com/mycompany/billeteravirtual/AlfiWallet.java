@@ -19,13 +19,19 @@ public class AlfiWallet implements Wallet {
     double euroDolars = 1.0869; // dolares en un EUR (20 de marzo 2024)
     double dolarEurs = 0.920961; // euros en un DOLAR (20 de marzo 2024)
 
-    // metodo para obtener el saldo
+    /**
+     * metodo para obtener el saldo
+     * @return el valor del saldo de la cuenta del usuario
+     */
     @Override
     public double obtenerSaldo() {
         return saldo;
     }
 
-    // metodo para depositar en la cuenta del usuario
+    /**
+     * metodo para depositar en la cuenta del usuario
+     * @param cantidad valor double con la cantidad a depositar
+     */
     @Override
     public void depositar(double cantidad) {
 
@@ -39,7 +45,10 @@ public class AlfiWallet implements Wallet {
         }
     }
 
-    // metodo para retirar dinero
+    /**
+     * metodo para retirar dinero
+     * @param cantidad valor double con la cantidad a retirar
+     */
     @Override
     public void retirar(double cantidad) {
         if (cantidad > 0) {
@@ -58,14 +67,20 @@ public class AlfiWallet implements Wallet {
         }
     }
 
-    // metodo para convertir de dolar a euro y viceversa
+    /**
+     * metodo para convertir de dolar a euro y viceversa
+     * @param cantidad valor double con la cantidad a convertir
+     * @param desdeMoneda string que indica desde que tipo de moneda convertir
+     * @param aMoneda string que indica a cual tipo de moneda convertir
+     * @return true indicando que el valor fue convertido
+     */
     @Override
     public boolean convertirMoneda(double cantidad, String desdeMoneda, String aMoneda) {
-        if (desdeMoneda == "USD") {
+        if (desdeMoneda.equals("USD")) {
             double euros = cantidad * dolarEurs;
             System.out.println(cantidad + " Dolares, equivalen a: "
                     + euros + " Euros");
-        } else if (desdeMoneda == "EUR") {
+        } else if (desdeMoneda.equals("EUR")) {
             double dolares = cantidad * euroDolars;
             System.out.println(cantidad + " Euros, equivalen a: "
                     + dolares + " Dolares");
@@ -73,12 +88,18 @@ public class AlfiWallet implements Wallet {
         return true;
     }
 
-    // metodo para obtener el historial
+    /**
+     * metodo para obtener el historial
+     * @return el listado de las transacciones
+     */
     public List<String> getTransacciones() {
         return transacciones;
     }
 
-    // metodo para almacenar las transacciones
+    /**
+     * metodo para almacenar las transacciones
+     * @param transacciones listado de las transacciones realizadas por usuario
+     */
     public void setTransacciones(List<String> transacciones) {
         this.transacciones = transacciones;
     }
