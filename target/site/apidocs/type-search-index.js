@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.mycompany.billeteravirtual","l":"AlfiWallet"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.mycompany.billeteravirtual","l":"BilleteraVirtual"},{"p":"com.mycompany.billeteravirtual","l":"Usuario"},{"p":"com.mycompany.billeteravirtual","l":"Wallet"}];updateSearchResults();

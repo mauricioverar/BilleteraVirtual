@@ -1,0 +1,42 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/mao/Documents/NetBeansProjects/BilleteraVirtual/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/mao/Documents/NetBeansProjects/BilleteraVirtual/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'BilleteraVirtual 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'BilleteraVirtual 1.0-SNAPSHOT API'
+com.mycompany.billeteravirtual
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\src\main\java = 1711042346384
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\allclasses-index.html = 1711072180438
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\allpackages-index.html = 1711072180440
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\element-list = 1711072180404
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\help-doc.html = 1711072180455
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\index-all.html = 1711072180452
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\index.html = 1711072180453
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\jquery-ui.overrides.css = 1711072180468
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\member-search-index.js = 1711072180444
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\module-search-index.js = 1711072180440
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\overview-tree.html = 1711072180430
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\package-search-index.js = 1711072180442
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\script.js = 1711072180458
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\search.js = 1711072180460
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\stylesheet.css = 1711072180457
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\tag-search-index.js = 1711072180444
+C:\Users\mao\Documents\NetBeansProjects\BilleteraVirtual\target\site\apidocs\type-search-index.js = 1711072180443
