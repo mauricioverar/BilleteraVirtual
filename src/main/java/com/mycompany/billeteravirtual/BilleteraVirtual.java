@@ -26,9 +26,16 @@ public class BilleteraVirtual {
         // instancia de AlfiWallet
         AlfiWallet wallet = new AlfiWallet();
 
-        System.out.println("********************");
-        System.out.println("Billetera Virtual");
-        System.out.println("Ingrese nombre: ");
+        System.out.println(" ");
+        System.out.println("*********************");
+        System.out.println("*********************");
+        System.out.println("* Billetera Virtual *");
+        System.out.println("*********************");
+        System.out.println(" ");
+
+        System.out.println("Ingrese su nombre para iniciar: ");
+        System.out.println(" ");
+
         String nombre = leer.nextLine();
         // leer.nextLine();
         Usuario usuario1 = new Usuario(1, nombre, wallet);
@@ -38,17 +45,22 @@ public class BilleteraVirtual {
         // menu
         while (acceso) {
             try {
+                System.out.println(" ");
+                System.out.println("******************");
                 System.out.println("Ingrese una opcion");
-                System.out.println(" 0: para salir");
-                System.out.println(" 1: para consultar saldo");
-                System.out.println(" 2: para depositar");
-                System.out.println(" 3: para retirar");
-                System.out.println(" 4: para convertir moneda (EUR/USD)");
-                System.out.println(" 5: para obtener transacciones");
+                System.out.println(" 0:  Salir");
+                System.out.println(" 1:  Consultar saldo");
+                System.out.println(" 2:  Depositar");
+                System.out.println(" 3:  Retirar");
+                System.out.println(" 4:  Convertir moneda (EUR/USD)");
+                System.out.println(" 5:  Obtener transacciones");
+                System.out.println("**************************");
+                System.out.println(" ");
+
                 opcion = leer.nextInt();
                 switch (opcion) {
                     case 0:
-                        System.out.println("Cerrando Menu");
+                        System.out.println("...Cerrando Menu");
                         acceso = false;
                         break;
                     case 1:
@@ -89,16 +101,17 @@ public class BilleteraVirtual {
                         System.out.println("Opcion no existe");
                 }
             } catch (Exception e) {
-                System.out.println(" ingrese solo numero de opcion");
+                System.out.println(" Error:_Ingrese solo numero de opcion");
             }
 
             leer.nextLine();
             System.out.println("........Si desea volver al Menu ingrese S, sino Enter para finalizar sesion");
+            System.out.println("........Sino Enter para finalizar sesion");
             String respuesta = leer.nextLine();
             if (respuesta.equals("s") || respuesta.equals("S")) {
                 acceso = true;
             } else {
-                System.out.println("___ Muchas gracias por usar la BilleteraVirtual ... vuelva pronto ___");
+                System.out.println("___ Muchas gracias por utilizar la BilleteraVirtual ... vuelva pronto ___");
                 acceso = false;
             }
 

@@ -9,19 +9,24 @@ package com.mycompany.billeteravirtual;
  * @author Mauricio Vera
  */
 public class Usuario {
+
     //atributos
     private int id;
     private String nombre;
     private AlfiWallet wallet;
+
     //constructor vacio
     public Usuario() {
     }
+
     //constructor por parametros
     public Usuario(int id, String nombre, AlfiWallet wallet) {
         this.id = id;
         this.nombre = nombre;
         this.wallet = new AlfiWallet(); // instancia
     }
+
+    // getter y setter
     public int getId() {
         return id;
     }
