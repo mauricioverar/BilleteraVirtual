@@ -10,6 +10,22 @@ import java.util.Scanner;
 /**
  *
  * @author Mauricio Vera
+ * 
+ * Vista para deplegar el Menú en pantalla, 
+ * para que el usuario pueda ingresar y 
+ * hacer uso de la BilleteraVirtual en su cuenta,
+ * posterior al ingreso de su nombre y clave.
+ * Menu:
+ * el menú contendrá opciones para:
+ * consultar saldo
+ * depositar
+ * retirar
+ * obtener un historial de los movimientos
+ * y un servicio de conversión de moneda
+ * 
+ * contiene validaciones para datos ingresados
+ * control del menú
+ * y cierre de sesión para la seguridad de las cuentas de usuarios
  */
 public class BilleteraVirtual {
 
@@ -75,7 +91,8 @@ public class BilleteraVirtual {
             System.out.println(" ");
 
             Usuario usuario1 = new Usuario(1, nombre, wallet);
-            usuarios.add(usuario1);
+            usuarios.add(usuario1); // agrega el usuario1 a la lista usuarios, para la base de datos
+            System.out.println("usuarios " + usuarios);
             usuario1.getWallet().obtenerSaldo();
 
             // menu
